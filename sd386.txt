@@ -1,0 +1,322 @@
+Version 2.00
+
+/*---------------------------------------------------------------------------*/
+/*  Changes in the .PRO from the earlier versions.                           */
+/*---------------------------------------------------------------------------*/
+/*
+    - All the functions on the Action Bar can be assigned accelerator
+      keys. The format of SD386.PRO has been reorganized to list the
+      functions in the order in which they appear on the Action Bar
+      pulldowns. The name of the function in the pulldown is shown
+      in the comment next to the internal function name.
+
+    - F1 on any pulldown selection will give context sensitive help
+      for that function.
+
+    - The Run pulldown functions now provide a more complete and consistent
+      implementation of swapping and no swapping actions associated with
+      execution functions.  In previous versions, we added some functions
+      per user requests for swapping and no swapping actions and it
+      eventually became unclear which functions swapped and which ones
+      didn't. The following is a summary of changes made in the execution
+      functions from 1.01- to 1.02:
+
+       1.02            | 1.01-           | Action
+       --------------  |-----------------|--------
+       Run             | same            | Swap
+       SStep           | FgSStep         | Swap
+       SStepIntoFunc   | not implemented | Swap
+       RunToCursor     | same            | Swap
+       RunNoScreenSwap | same            | No Swap
+       BgSStep         | SStep           | No Swap
+       BgSStepIntoFunc | SStepIntoFunc   | No Swap
+       BgRunToCursor   | not implemented | No Swap
+
+    - Two additional default function keys were assigned -
+      GetFile was assigned C_F11 and GetFunction was assigned
+      A_F11.
+
+    - The following are no longer assignable.
+
+      UP,C_UP,DOWN,C_DOWN,LEFT,C_LEFT,BACKSPACE,RIGHT,C_RIGHT,S_TAB,
+      PGUP,C_PGUP,PGDN,C_PGDN,C_HOME,C_END
+
+    - The following key names were changed:
+
+       SPACEBAR->S_BAR ( This will be changed to SBAR per user request. )
+       PADMINUS->PAD-
+       PADPLUS ->PAD+
+       C_ENTER ->C_ENT
+       A_ENTER ->A_ENT
+
+    - Key names A_SPACEBAR and C_SPACEBAR that were assignable in
+      1.01- were inadvertantly not provided key names in 1.02.
+      This has been fixed.
+
+    - In 1.01- the TAB key was assigned to the TabRight function and the
+      S_TAB key was assigned to the the TabLeft function.  In 1.02 these
+      functions continue to work as the did by default in 1.01;however,
+      only the TAB key remains assignable.  By default, the TAB key will
+      execute the EditStorage function in the data window. ( Note that in
+      1.02 you can simply click on the byte you want to change in storage
+      area.)
+
+    - The ESC key is shown in the .PRO as being assigned to the ActionBar
+      function. This is not true. ESC implements the function of Alt-F which
+      pulls down the File pulldown. A function "ExpressBar" was created and
+      assigned to ESC key by default.
+
+    - KeysHelp function has been created for the second item of Help pulldown.
+      C_F1 is assigned for KeysHelp by default.
+      ( Note that you can get context sensitive help for a function
+      from the "Keys Help" dialog.)
+*/
+
+/*---------------------------------------------------------------------------*/
+/*  User assignable keys with their default assignments.                     */
+/*---------------------------------------------------------------------------*/
+/*
+    F1    = GenHelp
+    F2    = ToggleStorage
+    F3    = ToggleAsm
+    F4    = TimedShowAppWindow
+    F5    = Run
+    F6    = FindExecLine
+    F7    = RunToCursor
+    F8    = BgSStep
+    F9    = SetClearBkpt
+    F10   = ActionBar
+    F11   = Browse
+    F12   = SetColors
+
+    C_F1  =
+    C_F2  = ToggleHideStorage
+    C_F3  =
+    C_F4  =
+    C_F5  = Find
+    C_F6  = RepeatFind
+    C_F7  =
+    C_F8  =
+    C_F9  = ClearAllBkpts
+    C_F10 = CoProRegDisplay
+    C_F11 = GetFile
+    C_F12 = SetExceptions
+
+    A_F1  = ShowCallStack
+    A_F2  = ShowThreads
+    A_F3  = ToggleDis
+    A_F4  = NextFile
+    A_F5  =
+    A_F6  = FindFunction
+    A_F7  = SetExecutionLine
+    A_F8  = BgSStepIntoFunc
+    A_F9  = SetClearCondBkpt
+    A_F10 =
+    A_F11 = GetFunction
+    A_F12 =
+
+    S_F1  = ShowDlls
+    S_F2  = ShowHideStorage
+    S_F3  = ToggleAsmView
+    S_F4  = TimedShowAppWindow
+    S_F5  = RunNoScreenSwap
+    S_F6  =
+    S_F7  = SetWatchPoints
+    S_F8  = SStep
+    S_F9  =
+    S_F10 = RegisterDisplay
+    S_F11 =
+    S_F12 =
+
+
+    SBAR   = BgSStep
+    S_SBAR =
+    A_SBAR =
+    C_SBAR =
+
+    INS    = ShowVar
+    C_INS  = PutVarInStg
+    S_INS  = ExpandVar
+    A_INS  =
+
+    DEL    = ShowVarPtsTo
+    C_DEL  = PutVarPtsToInStg
+    S_DEL  =
+    A_DEL  =
+
+    ENTER  = ExpandVar
+    C_ENT  = FormatVar
+    S_ENT  = Expandvar ( Not documented in old profile.)
+    A_ENT  = EditFormula
+
+    TAB    = EditStorage( data window only )
+    PAD-   = DeleteLine ( data window only )
+    PAD+   = InsertLine ( data window only )
+
+    ESC    = ExpressBar
+*/
+
+Start_Of_Defs
+/*
+        KEY            FUNCTION
+      --------     ----------------
+*/
+/*-----------------*/
+/* File  pulldown  */
+/*-----------------*/
+?            GetFunction                /* Get Function...                   */
+?            GetAddress                 /* Get Address...                    */
+C_F8         GetFile                    /* Get File                          */
+A_F6         FindFunction               /* Find Function                     */
+F6           FindExecLine               /* A_f6 Exec Line                    */
+A_F4         NextFile                   /* Next File                         */
+?            DropFile                   /* Drop File                         */
+F11          Browse                     /* Browse File...                    */
+?            Restart                    /* Restart                           */
+
+/*-----------------*/
+/* Run pulldown    */
+/*-----------------*/
+F5           Run                        /* Run                   ( Swap )    */
+S_F8         SStep                      /* Single Step           ( Swap )    */
+?            SStepIntoFunc              /* Step Into             ( Swap )    */
+F7           RunToCursor                /* Run To Cursor         ( Swap )    */
+S_F5         RunNoScreenSwap            /* Run                   ( No Swap ) */
+SBAR         BgSStep                    /* Single Step           ( No Swap ) */
+F8           BgSStep                    /* Single Step           ( No Swap ) */
+A_SBAR       BgSStepIntoFunc            /* Step Into             ( No Swap ) */
+?            BgRunToCursor              /* Run To Cursor         ( No Swap ) */
+A_F7         SetExecutionLine           /* Set Exec Line                     */
+
+/*----------------------*/
+/* Breakpoints pulldown */
+/*----------------------*/
+F9           SetClearBkPt               /* Set/Clear on Cursor               */
+A_F9         SetClearCondBkPt           /* Set Conditional on Cursor...      */
+?            SetFuncBkPt                /* Function entry...                 */
+?            SetAddrBkPt                /* Address...                        */
+C_F9         ClearAllBkpts              /* Clear All Breaks                  */
+S_F7         SetWatchPoints             /* Hardware Debug Regs...            */
+
+/*-----------------*/
+/* Search pulldown */
+/*-----------------*/
+C_F5         Find                       /* Find...                           */
+C_F6         RepeatFind                 /* Repeat Find                       */
+
+/*-----------------*/
+/* Data  pulldown  */
+/*-----------------*/
+INS          ShowVar                    /* Show Var                          */
+DEL          ShowVarPtsTo               /* Show Var->                        */
+C_INS        PutVarInStg                /* Watch Var                         */
+C_DEL        PutVarPtsToInStg           /* Watch Var->                       */
+S_INS        ExpandVar                  /* Expand Var                        */
+ENTER        ExpandVar                  /* Expand Var                        */
+A_ENT        EditFormula                /* Edit Expression                   */
+?            EditStorage                /* Edit Storage                      */
+C_ENT        FormatVar                  /* Format Var                        */
+PAD-         DeleteLine                 /* Remove Var                        */
+PAD+         InsertLine                 /* Insert                            */
+
+/*-----------------*/
+/* View  pulldown  */
+/*-----------------*/
+F3           ToggleAsm                  /* Source/Assembly Toggle            */
+F2           ToggleStorage              /* Data                              */
+S_F2         ShowHideStorage            /* Data Show/Hide                    */
+F4           TimedShowAppWindow         /* Timed Show App                    */
+S_F4         TimedShowAppWindow         /* Timed Show App                    */
+
+/*-------------------*/
+/* Settings pulldown */
+/*-------------------*/
+F12          SetColors                  /* Colors                            */
+C_F12        SetExceptions              /* Exceptions                        */
+S_F3         ToggleAsmView              /* Assembler +/- Source              */
+A_F3         ToggleDis                  /* Mnemonics                         */
+
+/*------------------------*/
+/* Miscellaneous pulldown */
+/*------------------------*/
+A_F1         ShowCallStack              /* Call Stack                        */
+A_F2         ShowThreads                /* Threads                           */
+S_F1         ShowDlls                   /* Dlls                              */
+S_F10        RegisterDisplay            /* Registers                         */
+A_INS        EditRegisters              /* Edit Registers                    */
+C_F10        CoProRegDisplay            /* Coprocessor Regs                  */
+
+/*-----------------*/
+/* Help  pulldown  */
+/*-----------------*/
+F1           GenHelp                    /* General Help - CUA Interface      */
+C_F1         KeysHelp                   /* Keys Help - Old Interface         */
+
+/*---------------------------------------------------------------------------*/
+/* Miscellaneous                                                             */
+/*---------------------------------------------------------------------------*/
+
+ESC          ExpressBar           /* present action bar with pulldown  */
+F10          ActionBar            /* present action bar options        */
+C_F2         ToggleHideStorage    /* toggle between code & data window */
+                                  /* leave the data window hidden      */
+
+Start_Of_Colors
+/*
+         ATTRIBUTE TYPE     BACKGROUND  FOREGROUND
+      --------------------  ---------- -------------
+*/
+      ProgramLine            BG_BLUE    FG_WHITE
+      LinesOkayForBrkPoint   BG_BLUE    FG_LT_WHITE
+      LinesWithBrkPoint      BG_RED     FG_LT_WHITE
+      ExecLineWithNoBrkPt    BG_WHITE   FG_GREY
+      ExecLineWithBrkPt      BG_WHITE   FG_RED
+      MenuBar                BG_CYAN    FG_LT_WHITE
+      MenuBarCursor          BG_BLACK   FG_LT_WHITE
+      StorageExpression      BG_WHITE   FG_BLACK
+      StorageValues          BG_WHITE   FG_BLACK
+      RegisterWindow         BG_BLUE    FG_WHITE
+      MenuPrompts            BG_BROWN   FG_LT_WHITE
+      ErrorMessages          BG_BLACK   FG_LT_RED
+      FileAndPosition        BG_CYAN    FG_LT_WHITE
+      HelpPanels             BG_WHITE   FG_BLACK
+      StorageExprsnPrompts   BG_MAGENTA FG_LT_WHITE
+      ClearScreenOnExit      BG_BLACK   FG_WHITE
+      DataWindowStatusLine   BG_CYAN    FG_LT_WHITE
+      AsmWindowSourceLines   BG_BLUE    FG_WHITE
+      MenuBarItemSelected    BG_CYAN    FG_YELLOW
+      SelectionWindow        BG_BROWN   FG_LT_WHITE
+      SelectWinItemSelected  BG_WHITE   FG_BROWN
+
+Start_Of_Exceptions
+/*
+         EXCEPTION TYPE           NOTIFICATION
+      --------------------       --------------
+*/
+      GuardPageViolation            NoNotify
+      UnableToGrowStack             Notify
+      DataTypeMisAlignment          Notify
+      AccessViolation               Notify
+      IllegalInstruction            Notify
+      FloatingDenormalOperand       Notify
+      FloatingDivideByZero          Notify
+      FloatingInExactResult         Notify
+      FloatingInvalidOperation      Notify
+      FloatingOverflow              Notify
+      FloatingStackCheck            Notify
+      FloatingUnderflow             Notify
+      IntegerDivideByZero           Notify
+      IntegerOverFlow               Notify
+      PrivilegedInstruction         Notify
+      PageError                     Notify
+      ProcessTerminate              NoNotify
+      AsyncProcessTerminate         NoNotify
+      NonContinuableException       Notify
+      InvalidDisposition            Notify
+      InvalidLockSequence           Notify
+      ArrayBoundsExceeded           Notify
+      UnwindException               NoNotify
+      BadStack                      Notify
+      InvalidUnwindTarget           Notify
+      Signal                        Notify
+

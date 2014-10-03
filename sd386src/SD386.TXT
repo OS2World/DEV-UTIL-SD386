@@ -1,0 +1,2032 @@
+; English help messages for SD386
+; Modified 1/29/88
+; MFH 03/13/91
+; ... 09/14/92  701   Michelle  wording and sizing changes
+; ... 10/05/92  701   Michelle  window changes
+; ... 10/15/92  701   Michelle  key additions
+; ... 10/19/92  701   Michelle  wording changes
+;
+; Organized as follows:
+;   message numbers match message ids defined in HELPID.H
+;   ordered by location in action bar
+;
+;
+DEB
+DEB0098H:
+
+ No help for this item.
+
+DEB0099H:
+;
+; This is the invocation help for SD386.
+;
+;----------------------------------------------------------------------
+;
+SD386 Ver 5.00 08/23/96
+
+  Syntax:   SD386  [Options]  [Program Name] [Program Arguments]
+  Options:
+  /h or /?      = Print this help screen.
+  /p            = Read SD386.PRO.
+  /c            = Force case sensitivity for public names.
+  /i            = Debug initialization code.
+  /f            = Run debuggee in full screen session.
+  /w            = Run debuggee in text window session.
+  /k            = Keyboard only (no mouse).
+  /u            = Do not flush keyboard buffer.
+  /m            = Resolve imports.
+  /o[Filespec]  = Make a phone line connection to a remote esp.
+                  (See notes regarding optional Filespec.)
+  /r[n]         = Remote debug:
+                      n=0   1    2    3    4    5     6
+                  speed=300 1200 2400 4800 9600 19200 38400
+  /an           = Which Com(Async) port. For example, /a1 uses COM1:
+  /s            = Don't stop at "main" entry point.
+  /e            = Use DosExecPgm() to start the debuggee.
+  /b[@]Filespec = Debug the child process specified by Filespec.
+                  If Filespec is prefixed with @, then debug all the
+                  processes specified ( one per line )in the file.
+  /nAname       = Remote debug over a netbios connection. Aname is
+                  any logical name. Use the same name on both the debug
+                  and the probe machine.
+  /x            = Disable Ctrl-Esc and Alt-Esc. If abnormal termination
+                  leaves Ctrl-Esc and Alt-Esc disabled, then SD386 /x
+                  will turn them back on.
+  /tname        = Remote debug over a TCP/IP connection. The name is the
+                  network name of the machine running the debug probe(esp).
+                  The name must be defined in your TCP/IP HOSTS file.
+
+Program Name      = Debuggee EXE name.
+Program Arguments = Arguments for the debuggee program.
+
+Notes:
+
+ FileSpec used with /o option:
+
+  Filespec is a file of AT commands that you can send to your
+  modem if you want to set modem options not automatically set by
+  SD386.
+
+DEB0100H:
+;
+; This is the invocation help for ESP. It must not exceed 25 lines.
+;
+;----------------------------------------------------------------------
+;
+ESP Ver 5.00 08/23/96
+
+Use ESP to establish a null modem or a modem connection to SD386.
+
+ Syntax:  esp [/option]
+
+OPTIONS:
+
+  /r[n]        = Remote debug:
+                     n=0   1    2    3    4    5     6
+                 speed=300 1200 2400 4800 9600 19200 38400
+  /an          = Which Com(Async) port. For example, /a1 uses COM1:
+  /o[Filespec] = Read commands in FileSpec and send to modem.
+                 (See notes regarding optional Filespec.)
+  /nAname      = Remote debug over a netbios connection. Aname is
+                 any logical name. Use the same name on both the debug
+                 and the probe machine.
+  /t            = Remote debug over a TCP/IP connection.
+
+Notes:
+
+ FileSpec used with /o option:
+
+  Filespec is a file of AT commands that you can send to your
+  modem if you want to set modem options not automatically set by
+  ESP.
+;
+;----------------------------------------------------------------------
+;
+DEB0101H:
+; File pulldown
+                            ษอออออออออออออออออป
+                            บ  File Pulldown  บ
+                            ศอออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ Get Function...  ณ    Locates the source file for a function.
+ณ Get Address...   ณ    Locates an address.
+ณ Get File...      ณ    Opens a source file.
+ณ Find Function    ณ    Locates the source file for a function.
+ณ Find Exec Line   ณ    Locates the current execution line.
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Next File        ณ    Gets the next file in the source file ring.
+ณ Drop File        ณ    Drops the current file from the source file ring.
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Browse File...   ณ    Browses a file.
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Restart          ณ    Restarts the target application.
+ณ Quit             ณ    Ends the debugger.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+DEB0102H:
+; Get Function
+                     ษออออออออออออออออป
+                     บ  Get Function  บ
+                     ศออออออออออออออออผ
+Locates the source file that contains the definition of the
+function you specify and adds the source file to the ring of
+source files.
+;
+DEB0103H:
+; Get Function dialog
+Enter the name of the function to locate.
+;
+DEB0104H:
+; Get Address
+                      ษอออออออออออออออป
+                      บ  Get Address  บ
+                      ศอออออออออออออออผ
+Locates the source file and line number containing the specified
+address and adds the source file to the ring of files. If source
+is not available then a disassembly view will be shown.
+;
+DEB0105H:
+; Get Address dialog
+Enter the address you want to go to.
+;
+DEB0106H:
+; Get File
+                        ษออออออออออออป
+                        บ  Get File  บ
+                        ศออออออออออออผ
+Locates the file specified looking first in the ring of files
+and then in the list of files linked with the /CO or /DE debug
+option.
+;
+DEB0107H:
+; Get File dialog
+Enter the name of the file to locate.
+;
+DEB0108H:
+; Find Function
+                      ษอออออออออออออออออป
+                      บ  Find Function  บ
+                      ศอออออออออออออออออผ
+Locates the source file that contains the function on which the
+cursor is placed and adds the source file to the ring of source
+files.
+;
+DEB0109H:
+; Find Exec Line
+                      ษออออออออออออออออออป
+                      บ  Find Exec Line  บ
+                      ศออออออออออออออออออผ
+This function brings the currently executing line (Exec Line) into
+view and places the cursor on that line.  If the cursor is already
+on the Exec Line, then this function will take you to the next line
+to be executed in the previous stack frame and place the cursor on
+that line.  Subsequent executions will continue to to take you to
+previous stack frames until you return to the Exec Line.
+Effectively, this function lets you walk the stack in a ring like
+fashion adding a file for each stack frame to the ring of files.
+;
+DEB0110H:
+; Next File
+                   ษอออออออออออออป
+                   บ  Next File  บ
+                   ศอออออออออออออผ
+Switches to the next file in the ring of source files.
+;
+DEB0111H:
+; Drop File
+                        ษอออออออออออออป
+                        บ  Drop File  บ
+                        ศอออออออออออออผ
+If the current file does not define the currently executing
+procedure, then Drop file will remove the file from the ring of
+files.
+;
+DEB0112H:
+; Browse File
+    ษอออออออออออออออป
+    บ  Browse File  บ
+    ศอออออออออออออออผ
+Loads a file for browsing.
+;
+DEB0113H:
+; Browse file dialog
+Enter the name of the file to be browsed.
+;
+DEB0114H:
+; Restart
+                      ษอออออออออออป
+                      บ  Restart  บ
+                      ศอออออออออออผ
+Reloads and restarts the target application.  Breakpoints and
+the contents of the data window are retained.
+;
+DEB0115H:
+; Quit
+   ษออออออออป
+   บ  Quit  บ
+   ศออออออออผ
+Ends the debugger.
+;
+DEB0116H:
+; Run pulldown
+                            ษออออออออออออออออป
+                            บ  Run Pulldown  บ
+                            ศออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ Run                     ณ   Runs the target program.
+ณ Single Step             ณ   Executes the current line.
+ณ Step Into               ณ   Steps into a function call.
+ณ Run To Cursor           ณ   Runs up to the cursor line.
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Run              NoSwap ณ   Runs the program, no screen swap.
+ณ Single Step      NoSwap ณ   Executes the current line, no screen swap.
+ณ Step Into        NoSwap ณ   Steps into a function, no screen swap.
+ณ Run To Cursor    NoSwap ณ   Runs up to the cursor line, no screen swap.
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Set Exec Line           ณ   Sets current line as the next executable.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+DEB0117H:
+; Run
+                           ษอออออออป
+                           บ  Run  บ
+                           ศอออออออผ
+Runs the program until a breakpoint is hit, an exception occurs,
+or the end of the program is reached.
+;
+DEB0118H:
+; Swap
+                           ษออออออออป
+                           บ  Swap  บ
+                           ศออออออออผ
+Sets the swap option to swap screens with the target program.
+;
+DEB0119H:
+; No Swap
+                      ษอออออออออออป
+                      บ  No Swap  บ
+                      ศอออออออออออผ
+Sets the swap option to not swap screens with the target
+program.
+;
+DEB0120H:
+; Single Step
+                       ษอออออออออออออออป
+                       บ  Single step  บ
+                       ศอออออออออออออออผ
+Executes the current source line (as defined by your compiler).
+If the current line calls other procedures, they will executed
+but will not be traced.  Use the "Step Into" function to trace
+calls to other procedures as well.
+;
+DEB0121H:
+; Step Into
+                      ษอออออออออออออป
+                      บ  Step Into  บ
+                      ศอออออออออออออผ
+Executes the current source line.  If the current line calls
+other procedures, they will also be traced.
+;
+DEB0122H:
+; Run To Cursor
+                      ษอออออออออออออออออป
+                      บ  Run To Cursor  บ
+                      ศอออออออออออออออออผ
+Sets a one-time breakpoint on the line containing the cursor and
+executes the program.  If the cursor line is not hit during the
+run, a one-time breakpoint is set on the line to be hit on the
+next run.
+;
+DEB0123H:
+; Run NoSwap
+                        ษออออออออออออออป
+                        บ  Run NoSwap  บ
+                        ศออออออออออออออผ
+Runs the program in the background until a breakpoint is hit, an
+exception occurs, or the end of the program is reached.
+;
+DEB0124H:
+; Single Step NoSwap
+                    ษออออออออออออออออออออออป
+                    บ  Single Step NoSwap  บ
+                    ศออออออออออออออออออออออผ
+Executes the current source line (as defined by your compiler)
+in the background.  If the current line calls other procedures,
+they will executed but will not be traced.  Use the "Step Into
+NoSwap" function to trace calls to other procedures as well.
+;
+DEB0125H:
+; Step Into NoSwap
+                     ษออออออออออออออออออออป
+                     บ  Step Into NoSwap  บ
+                     ศออออออออออออออออออออผ
+Executes the current source line in the background.  If the
+current line calls other procedures, they will also be traced.
+;
+DEB0126H:
+; Run To Cursor NoSwap
+                   ษออออออออออออออออออออออออป
+                   บ  Run To Cursor NoSwap  บ
+                   ศออออออออออออออออออออออออผ
+Sets a one-time breakpoint on the line containing the cursor and
+executes the program in the background.  If the cursor line is
+not hit during the run, a one-time breakpoint is set on the line
+to be hit on the next run.
+;
+DEB0127H:
+; Set Exec Line
+                   ษอออออออออออออออออป
+                   บ  Set Exec Line  บ
+                   ศอออออออออออออออออผ
+Sets the current execution line to the line containing the
+cursor.
+;
+DEB0128H:
+; Breakpoints pulldown
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ Set/Clear on Cursor          ณ
+ณ Set Conditional on Cursor... ณ
+ณ Set Function Name Break...   ณ
+ณ Set Address Break...         ณ
+ณ Set Deferred Break...        ณ
+ณ Set Address Load Break...    ณ
+ณ Set DLL Load Break...        ณ
+ณ Clear All Breaks             ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Save Breakpoint File         ณ
+ณ Restore Breakpoint File      ณ
+ณ Edit Breakpoint File         ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Hardware Debug Regs...       ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+DEB0129H:
+; Set/Clear on Cursor
+Sets or resets a breakpoint on the executable line selected by the
+cursor.  Highlighted lines denote the executable lines.
+;
+DEB0130H:
+; Set Conditional on Cursor
+Sets a conditional breakpoint on the executable line selected by the
+cursor.  Highlighted lines denote executable lines.
+;
+;Breakpoints can now have two additional forms.
+;If the breakpoint starts with "!" it is a list of MSH expressions. Each MSH
+;expression has a return code. The return code of the breakpoint is
+;the return code of the last expression. If the return code is 0, the
+;debugger does NOT stop.
+;
+;If the breakpoint starts with "!!" it is a list of REXX expressions.
+;The list of REXX expressions has a return code as set by REXX.
+;If the return code is 0, the debugger does NOT stop.
+;
+;Please see the Math Shell Help under the Help pulldown section for
+;more details.
+;
+DEB0131H:
+; Set Conditional Breakpoint on Cursor dialog
+Enter a conditional breakpoint expression. The form for the
+expression is:
+           <variable> <op> <constant>
+where
+           <variable> is a storage address or a variable name
+           <op> is <, >, ==, !=, <=, >=
+           <constant> is a constant expression
+;
+DEB0132H:
+; Function Name
+Sets a breakpoint at a function entry using the syntax
+[dllname.]funcname.  If you do not dot qualify funcname and
+funcname is not found, then you will be given the option of
+deferring the breakpoint for ALL dlls.
+;
+DEB0133H:
+; Function Entry dialog
+Enter the name of the function optionally dot qualified with
+a dll or exe name.
+;
+DEB0134H:
+; Address
+Sets a breakpoint on a given address.
+;
+DEB0135H:
+; Address dialog
+Enter the address at which the breakpoint is to be set.
+;
+DEB0136H:
+; Clear all breakpoints
+Clears all breakpoints in the target program.
+;
+DEB0137H:
+; Hardware Debug Registers
+Brings up the watchpoint menu allowing you to enter
+expressions for up to 4 watchpoints.  These watchpoints use the
+hardware debug registers of the Intel chip.
+;
+DEB0138H:
+; Data Breakpoint
+                   ษอออออออออออออออออออออออป
+                   บ  Set Data Breakpoint  บ
+                   ศอออออออออออออออออออออออผ
+Sets a hardware data breakpoint at the cursor line.  This
+function is currently not implemented.
+;
+DEB0139H:
+; Search pulldown
+                         ษอออออออออออออออออออป
+                         บ  Search Pulldown  บ
+                         ศอออออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ Find...    ณ    Finds a specified string in the current source file.
+ณ RepeatFind ณ    Repeats the prevoius find command.
+ภฤฤฤฤฤฤฤฤฤฤฤฤู
+DEB0140H:
+; Find
+                    ษออออออออป
+                    บ  Find  บ
+                    ศออออออออผ
+Find searches the current source file for a string.
+;
+DEB0141H:
+; Repeat Find
+                     ษอออออออออออออออป
+                     บ  Repeat Find  บ
+                     ศอออออออออออออออผ
+Repeats the find command with the previous string entered.
+;
+DEB0142H:
+; Data pulldown
+                           ษอออออออออออออออออป
+                           บ  Data Pulldown  บ
+                           ศอออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ Show Var         ณ    Shows the value of the variable at the cursor.
+ณ Show Var->       ณ    Shows the contents of the pointer variable
+ณ                  ณ     selected by the cursor.
+ณ Watch Var        ณ    Adds the variable to the data window.
+ณ Watch Var->      ณ    Adds the contents of the pointer variable
+ณ                  ณ     to the data window.
+ณ Expand Var       ณ    Expands the variable in the data expansion window.
+รฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Edit Expression  ณ    Edits the expression.
+ณ Edit Storage     ณ    Edits the storage displayed in the data window.
+ณ Format Var       ณ    Shows action bar of choices for the format of
+ณ                  ณ     the display of the data.
+ณ Remove Var       ณ    Removes a variable from the data window.
+ณ Insert           ณ    Inserts a variable in the data window.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0143H:
+; Show Var
+                     ษออออออออออออป
+                     บ  Show Var  บ
+                     ศออออออออออออผ
+Shows the value of the variable selected by the cursor.
+;
+DEB0144H:
+; Show Var->
+                     ษออออออออออออออป
+                     บ  Show Var->  บ
+                     ศออออออออออออออผ
+Shows the contents of the pointer variable selected by the
+cursor.
+;
+DEB0145H:
+; Watch Var
+                       ษอออออออออออออป
+                       บ  Watch Var  บ
+                       ศอออออออออออออผ
+Adds the variable selected by the cursor to the data window.
+;
+DEB0146H:
+; watch Var->
+                      ษอออออออออออออออป
+                      บ  Watch Var->  บ
+                      ศอออออออออออออออผ
+Adds the pointer variable selected by the cursor to the data
+window.
+;
+DEB0147H:
+; Expand Var
+                        ษออออออออออออออป
+                        บ  Expand Var  บ
+                        ศออออออออออออออผ
+Expands the view of a variable such as a member of a structure
+or union.  If the member is a structure or union, its components
+will be displayed in the expansion window.  If the member is a
+pointer to another structure, etc., the contents of the variable
+pointed to by the pointer will be displayed in the expansion
+window.
+;
+DEB0148H:
+; Edit Expression
+                     ษอออออออออออออออออออป
+                     บ  Edit Expression  บ
+                     ศอออออออออออออออออออผ
+Allows you to edit the expression (formula) which defines what
+is displayed by SD386.  One you have changed the expression,
+press Enter to cause SD386 to handle the expression or press Esc
+to leave the expression alone.
+;
+DEB0149H:
+; Edit Storage
+                       ษออออออออออออออออป
+                       บ  Edit Storage  บ
+                       ศออออออออออออออออผ
+Allows you to edit the value of the storaged displayed by SD386.
+Once you have changed the value, press Enter to alter the actual
+contents of memory or press Esc to leave the contents alone.
+;
+DEB0150H:
+; Format Variable
+                     ษอออออออออออออออออออป
+                     บ  Format Variable  บ
+                     ศอออออออออออออออออออผ
+Formats a varible in the data window according to the format
+specified.  A menu will be displayed to choose default formats
+or enter the format type of the variable.
+;
+DEB0151H:
+; Remove Var
+                     ษออออออออออออออป
+                     บ  Remove Var  บ
+                     ศออออออออออออออผ
+Removes the variable selected by the cursor from the data
+window.
+;
+DEB0152H:
+; Insert
+                          ษออออออออออป
+                          บ  Insert  บ
+                          ศออออออออออผ
+Inserts the variable selected by the cursor in the data window.
+;
+DEB0153H:
+; View pulldown
+                         ษอออออออออออออออออป
+                         บ  View Pulldown  บ
+                         ศอออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ Source         ณ    Switches to source view.
+ณ Assembler      ณ    Switches to assembly view.
+ณ Data           ณ    Switches to the data window.
+ณ Data Show/Hide ณ    Display/Hide data window.
+ณ Timed Show App ณ    Shows the application screen for few seconds.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0154H:
+; Source
+                       ษออออออออออป
+                       บ  Source  บ
+                       ศออออออออออผ
+Switches to the source view.  This option is disabled if the
+current view is already the source view.
+;
+DEB0155H:
+; Assembler
+                       ษอออออออออออออป
+                       บ  Assembler  บ
+                       ศอออออออออออออผ
+Switches to the assembly view.  This option is disabled if the
+current view is already the assembly view.
+;
+DEB0156H:
+; Data
+                        ษออออออออป
+                        บ  Data  บ
+                        ศออออออออผ
+Switches to the data window. This option is disabled if the
+current window is already the data window.
+;
+DEB0157H:
+; Data Show/Hide
+                      ษออออออออออออออออออป
+                      บ  Data Show/Hide  บ
+                      ศออออออออออออออออออผ
+This command toggles between showing and hiding the data window.
+The contents of the data window remain unchanged.
+;
+DEB0158H:
+; Timed Show App
+                      ษออออออออออออออออออป
+                      บ  Timed Show App  บ
+                      ศออออออออออออออออออผ
+This command shows the application screen for a few seconds. It
+returns back to the previous view.
+;
+DEB0159H:
+; Settings pulldown
+                     ษอออออออออออออออออออออป
+                     บ  Settings Pulldown  บ
+                     ศอออออออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ Colors             ณ    Sets colors for various screen items.
+ณ Exceptions         ณ    Sets various exception notifications.
+ณ Assembler ๑ Source ณ    Sets type of assembly view.
+ณ Mnemonics          ณ    Sets the disassembly option.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0160H:
+; Colors
+                        ษออออออออออป
+                        บ  Colors  บ
+                        ศออออออออออผ
+Sets the colors for the various screen areas.  You can choose
+colors, reset to default colors, and optionally save color
+settings.
+;
+DEB0161H:
+; Exceptions
+                     ษออออออออออออออป
+                     บ  Exceptions  บ
+                     ศออออออออออออออผ
+Allows you choose whether to be notified or not for various
+processor and operating system exceptions.
+;
+DEB0162H:
+; Assembler ๑ Source
+                  ษออออออออออออออออออออออป
+                  บ  Assembler ๑ Source  บ
+                  ศออออออออออออออออออออออผ
+Sets the assembler view option.  This option toggles between
+mixed source/assembly and assembly only views.
+;
+DEB0163H:
+; Mnemonics
+                       ษอออออออออออออป
+                       บ  Mnemonics  บ
+                       ศอออออออออออออผ
+This command sets the type of disassembly.  This option toggles
+between Intel and AL/86 instructions.
+;
+DEB0164H:
+; Misc pulldown
+                   ษอออออออออออออออออป
+                   บ  Misc Pulldown  บ
+                   ศอออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ CallStack        ณ    List of active procedures.
+ณ Processes        ณ    List of active processes.
+ณ Threads          ณ    List of active threads.
+ณ Dlls             ณ    List of dlls for the application.
+ณ Registers        ณ    Register display.
+ณ Edit Registers   ณ    Modify register contents.
+ณ Coprocessor Regs ณ    Coprocessor register display.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0165H:
+; Call Stack
+                        ษออออออออออออออป
+                        บ  Call Stack  บ
+                        ศออออออออออออออผ
+This command displays the list of active procedures and allows
+you to unwind the call stack to a selected procedure.
+;
+DEB0166H:
+; Threads
+                       ษอออออออออออป
+                       บ  Threads  บ
+                       ศอออออออออออผ
+Displays the status of all active threads and allows you to
+examine and/or modify their current status.
+;
+DEB0167H:
+; Dlls
+                          ษออออออออป
+                          บ  Dlls  บ
+                          ศออออออออผ
+Displays the list of Dynamic link libraries used by the target
+application.
+;
+DEB0168H:
+; Registers
+                         ษอออออออออออออป
+                         บ  Registers  บ
+                         ศอออออออออออออผ
+Displays the processor registers and their values.  This list is
+updated at each instruction step.
+;
+DEB0169H:
+; Edit Registers
+                      ษออออออออออออออออออป
+                      บ  Edit Registers  บ
+                      ศออออออออออออออออออผ
+This command allows you to edit the contents of the registers.
+;
+DEB0170H:
+; Coprocessor Regs
+                    ษออออออออออออออออออออป
+                    บ  Coprocessor Regs  บ
+                    ศออออออออออออออออออออผ
+Displays the coprocessor registers, stack, and their values.
+This list is updated at each instruction step.
+;
+DEB0171H:
+; Help pulldown
+                       ษอออออออออออออออออป
+                       บ  Help Pulldown  บ
+                       ศอออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ General help        ณ    Display general information about SD386.
+ณ Keys help           ณ    Display the various key assignments.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+DEB0172H:
+; Keys
+                 ษอออออออออออออออออออป
+                 บ  Key assignments  บ
+                 ศอออออออออออออออออออผ
+SD386 provides a set of default accelerator key assignments.
+These accelerator keys can be used in conjunction with the mouse
+or by themselves to perform the SD386 functions.  The
+accelerator keys can be reassigned in the SD386.PRO file.
+;
+; Dialogs
+DEB0173H:
+; Colors Dialog
+                                ษออออออออออป
+                                บ  Colors  บ
+                                ศออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณMouse Input ณKey Inputณ If you want to                                  ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Left Click ณ or    ณ Select a window/area definition                 ณ
+ณ Move &     ณ<- ->    ณ Move to next field                              ณ
+ณ Left Click ณor Tabs  ณ                                                 ณ
+ณ<BgNext> or ณSpace    ณ Switch to next color for background             ณ
+ณ Left Click ณ         ณ                                                 ณ
+ณ<FgNext> or ณSpace    ณ Switch to next color for foreground             ณ
+ณ Left Click ณ         ณ                                                 ณ
+ณ<Default>   ณD        ณ Set all of the color selections to defaults     ณ
+ณ<Reset>     ณR        ณ Reset single color selection to default         ณ
+ณ<Save>      ณS        ณ Save current color selections to profile        ณ
+ณ<Enter>     ณEnter    ณ Accept current color selections                 ณ
+ณ<Cancel>    ณEsc      ณ Exit without any action                         ณ
+ณ<Help>      ณF1       ณ See this Help panel                             ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0174H:
+; Find Dialog
+Enter the string to be searched.  Blanks are allowed in the
+string.
+;
+DEB0175H:
+; Threads Dialog
+                               ษอออออออออออป
+                               บ  Threads  บ
+                               ศอออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณMouse Input ณKey Inputณ If you want to                                  ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ            ณ or    ณ Highlight a thread                              ณ
+ณ<Select>    ณSpace    ณ Select highlighted thread                       ณ
+ณ<Names>     ณA        ณ Toggle state, filename, line#, and function infoณ
+ณ<Freeze>    ณF        ณ Freeze highlighted thread                       ณ
+ณ<Thaw>      ณT        ณ Thaw highlighted thread                         ณ
+ณ<Freeze All>ณR        ณ Freeze all threads                              ณ
+ณ<Thaw All>  ณH        ณ Thaw all threads                                ณ
+ณ<Enter>     ณEnter    ณ Accept current thread status                    ณ
+ณ<Cancel>    ณEsc      ณ Exit without any action                         ณ
+ณ<Help>      ณF1       ณ See this Help panel                             ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0176H:
+; Set Exceptions Dialog
+                              ษออออออออออออออป
+                              บ  Exceptions  บ
+                              ศออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณMouse Input ณKey Inputณ If you want to                                  ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Left Click ณ or    ณ Select an exception                             ณ
+ณ Move &     ณ<- ->    ณ Move to next field                              ณ
+ณ Left Click ณor Tabs  ณ                                                 ณ
+ณ<Next> or   ณSpace    ณ Switch to next notification option              ณ
+ณ Left Click ณ         ณ                                                 ณ
+ณ<Default>   ณD        ณ Set all exception notifications to defaults     ณ
+ณ<Reset>     ณR        ณ Reset single exception notification to default  ณ
+ณ<Save>      ณS        ณ Save exception notifications to profile         ณ
+ณ<Enter>     ณEnter    ณ Accept current exception notifications          ณ
+ณ<Cancel>    ณEsc      ณ Exit without any action                         ณ
+ณ<Help>      ณF1       ณ See this Help panel                             ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0177H:
+; Watch points Dialog
+                             ษอออออออออออออออป
+                             บ  Watchpoints  บ
+                             ศอออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณMouse Input ณKey Inputณ If you want to                                  ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ            ณ or    ณ Select a watchpoint                             ณ
+ณ            ณ<- ->    ณ Tab to next field                               ณ
+ณ            ณor Tabs  ณ                                                 ณ
+ณ<Size>      ณ         ณ Set size of expression (1, 2, or 4 bytes)       ณ
+ณ<Scope>     ณ         ณ Set scope of expression (local or global)       ณ
+ณ<Type>      ณ         ณ Set access type (Write, Read/Write, or Execute) ณ
+ณ<Status>    ณ         ณ Set status (Enabled or Disabled)                ณ
+ณ<Enter>     ณEnter    ณ Put in the watchpoints                          ณ
+ณ<Cancel>    ณEsc      ณ Exit without any action                         ณ
+ณ<Help>      ณF1       ณ See this Help panel                             ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ - The Expression must evaluate to a size of 1,2 or 4 bytes.            ณ
+ณ - An '*' before the address field indicates SD386 aligned address.     ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0178H:
+; Call stack Dialog
+                             ษออออออออออออออป
+                             บ  Call Stack  บ
+                             ศออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณMouse Input ณKey Inputณ If you want to                                   ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ Left Click ณ or    ณ Select a procedure                               ณ
+ณ<Get View>  ณEnter    ณ View the selected procedure                      ณ
+ณ<Run To>    ณAlt-Enterณ Resume execution & stop at the selected procedureณ
+ณ<Show All>  ณ         ณ Unwind the call stack using a more rigorous      ณ
+ณ            ณ         ณ algorithm                                        ณ
+ณ<Show Named>ณ         ณ Show call stack, including only named procedures ณ
+ณ<Cancel>    ณEsc      ณ Exit without any action                          ณ
+ณ<Help>      ณF1       ณ See this Help panel                              ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+;
+DEB0179?:
+DEB0180?:
+DEB0181H:
+; Browse window
+             ษออออออออออป
+             บ  Browse  บ
+             ศออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ            Cursor down one line. ณ
+ณ            Cursor up one line.   ณ
+ณ PgDn        Scroll down.          ณ
+ณ PgUp        Scroll up.            ณ
+ณ Ctrl-PgDn   Bot of screen.        ณ
+ณ Ctrl-PgUp   Top of screen.        ณ
+ณ Ctrl-Home   Top of file.          ณ
+ณ Ctrl-End    End of file.          ณ
+ณ / or F      Find.                 ณ
+ณ R           Repeat find.          ณ
+ณ Esc         Leave browse.         ณ
+ณ F1          Help.                 ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0182?:
+DEB0183H:
+; Object pulldown for format variable
+; ?
+Any data type may be specified.  SD386 will prompt you for a
+type name.  The variable will be formatted as indicated by the
+type (char, int, long, uchar, uint, ulong, float, double, or
+@mytype).  "@mytype" tells SD386 to format the variable as the
+type of the variable "mytype."  The variable you choose must be
+known to SD386.  You may add an asterisk (*) after any of the
+types to indicate a pointer to that type.
+;
+DEB0184H:
+; Hex
+Data is shown as hex bytes.
+;
+DEB0185H:
+; Char
+Data type is CHAR (8 bits).
+;
+DEB0186H:
+; Short
+Data type is SHORT (16 bits).
+;
+DEB0187H:
+; Long
+Data type is LONG (32 bits).
+;
+DEB0188H:
+; Float
+Data type is FLOAT (32 bits).
+;
+DEB0189H:
+; Double
+Data type is DOUBLE (64 bits).
+;
+DEB0190H:
+; Data type specified in the menu
+Data type is the actual data type of the variable as defined in
+your program.
+;
+DEB0191H:
+; Formula
+                         ษออออออออออออออออป
+                         บ  Formula Edit  บ
+                         ศออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ                                                                  ณ
+ณ Type the new formula for this line, then press ฤู. Press Esc to ณ
+ณ recover  the  old  formula  for this line. Formulas are simple C ณ
+ณ expressions using variable names, constants, register names, and ณ
+ณ the operators + - * . -> [] and :.                               ณ
+ณ                                                                  ณ
+ณ Some example formulas are:                                       ณ
+ณ                                                                  ณ
+ณ   buffer+20    20 bytes beyond buffer.                           ณ
+ณ   ss:sp        The top of the stack.                             ณ
+ณ   *root        The data pointed to by root.                      ณ
+ณ   table[10]    The 10th element of the table array.              ณ
+ณ   node.p->id   The id field of the struct pointed                ณ
+ณ                to by the p field of node struct.                 ณ
+ณ                                                                  ณ
+ณ One or more * or one & may appear at the beginning of the        ณ
+ณ formula, and is evaluated last.                                  ณ
+ณ                                                                  ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0192H:
+; Type
+Enter a tag name or a typedef.
+;
+; Messages for modifying data in storage.
+;
+DEB0193H:
+; Signed char
+Enter a number from -128 (0x80) to 127 (0x7F).
+;
+DEB0194H:
+; Unsigned char
+Enter a number from 0 (0x0) to 255 (0xFF).
+;
+DEB0195H:
+; Signed Integer
+Enter a number from -32768 (0x8000) to 32767 (0x7FFF).
+;
+DEB0196H:
+; Unsigned Integer
+Enter a number from 0 (0x0) to 65535 (0xFFFF).
+;
+DEB0197H:
+; Signed long
+Enter a number from -2147483648 (0x80000000) to 2147483647 (0x7FFFFFFF).
+;
+DEB0198H:
+; Unsigned long
+Enter a number from 0 (0x0) to 4294967295 (0xFFFFFFFF).
+;
+DEB0199H:
+; Float
+Enter a number like -123.456e-10 (needs work).
+;
+DEB0200H:
+; Double
+Enter a number like -123.456e-99 (needs work).
+;
+DEB0201H:
+; Pointer segment
+Enter the segment selector as a 4-digit hex value.
+;
+DEB0202H:
+; Pointer offset
+Enter the segment offset as a 4-digit hex value.
+;
+DEB0203H:
+; Hex data
+Enter byte data and then press Enter or Esc.
+;
+DEB0204H:
+; ASCII data
+Enter ASCII data and then press Enter or Esc.
+;
+DEB0205H:
+; Flags register
+
+            Flags Register
+ฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤ
+Zero flag:%1       (1 if zero result)
+Carry flag:%2      (1 if 2**16 carry)
+Sign flag:%3       (1 if sign bit on)
+Overflow flag:%4   (1 if signed over)
+Direction flag:%5  (1 if dec si/di)
+Parity flag:%6     (1 if even parity)
+Auxiliary carry:%7 (1 if 2**4 carry)
+;
+DEB0206H:
+; Edit registers
+;
+    ษออออออออออออออออออป
+    บ  Edit Registers  บ
+    ศออออออออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ                          ณ
+ณ Esc, ฤู    Exit regs    ณ
+ณ |--,--|   Move cursor  ณ
+ณ ,,-,-   Move cursor  ณ
+ณ 0..9,a..f   Change reg.  ณ
+ณ                          ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+DEB0207H:
+; General Help
+                       ษออออออออออออออออป
+                       บ  General Help  บ
+                       ศออออออออออออออออผ
+SD386 is a source-level debugger for OS/2.  It debugs programs
+compiled with IBM C Set/2, Microsoft C, or PL/X-86.  SD386
+debugs 32-bit, 16-bit, and mixed 16- and 32-bit applications.
+SD386 has full keyboard and mouse support.  It has a full set of
+accelerator keys.  It has an action bar with these pull-downs:
+
+ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณ File        ณ    File functions, browse, restart, & quit.
+ณ Run         ณ    Execute the target application in various ways.
+ณ Breakpoints ณ    Set/clear various kinds of breakpoints.
+ณ Search      ณ    Text string search functions.
+ณ Data        ณ    Watch, show, expand, and edit data items.
+ณ View        ณ    SD386 window selection.
+ณ Settings    ณ    Colors, exceptions, assembler settings.
+ณ Misc        ณ    Call stack, thread, DLL, and register info.
+ณ Help        ณ    Display general and keyboard help information.
+ภฤฤฤฤฤฤฤฤฤฤฤฤฤู
+
+You can use the mouse or keyboard to select a line in the source
+window.  Click the right mouse button on a line to bring up a
+menu of functions available for that line.  Generally, you can
+use the mouse anywhere you can use the keyboard.  Use the up and
+down arrows on the action bar to change the size of the data
+window.
+
+;MSH Interface
+;
+;1) MSH Language
+;2) Existing Interfaces
+;3) Extending the interface
+
+;see the file msh.txt.
+;
+DEB0208H:
+; AL/86 Mnemonics
+                     ษอออออออออออออออออออป
+                     บ  AL/86 Mnemonics  บ
+                     ศอออออออออออออออออออผ
+Sets the disassembly to use AL/86 mnemonics.  These mnemonics
+coordinate with PL/X-86 assembly listings.
+;
+DEB0209H:
+; Intel Mnemonics
+          ษอออออออออออออออออออป
+          บ  Intel Mnemonics  บ
+          ศอออออออออออออออออออผ
+Sets the disassembly to use Intel mnemonics.
+;
+DEB0210H:
+; Data Window
+                       ษอออออออออออออออป
+                       บ  Data Window  บ
+                       ศอออออออออออออออผ
+The data window allows you to watch simple and complex variables
+and view storage. You can expand complex variables into their
+component parts.  You can use simple C-like expressions as
+formulas to be watched.  You can changed the display format for
+any item.
+
+Think of the data window as a slate upon which you can put
+variable and formula names.  In that slate, you can scroll up
+and down, move to the beginning or end, or move by window.  You
+can also expand or shrink the size of the window.  You can hide
+the data window and redisplay it.
+
+You can edit the formulas and the displayed storage.  Use the
+mouse and/or the keyboard to move to the area you wish to edit.
+Press Enter when you've finished.
+;
+DEB0211H:
+; Asm Window
+                     ษออออออออออออออออออออป
+                     บ  Assembler Window  บ
+                     ศออออออออออออออออออออผ
+The assembler window shows you mixed source and disassembly or
+disassembly only.  In this view, you can choose Intel or AL/86
+mnemonics.  When you single step in this view, you are stepping
+one disassembled instruction at a time instead of one source
+line at a time.  This allows you to see what is going on at the
+machine level.
+
+Each disassembled instruction contains the address of the
+instruction, the hex bytes, the disassembled instruction (in
+either mnemonic format), the operand(s), and the value of the
+storage of the operand(s) if applicable.
+
+You may wish to view or edit the contents of the registers while
+in the assembler window.  The Registers (S_F10) and Edit
+Registers items are in the Misc pulldown on the action bar.
+;
+DEB0212H:
+; Action Bar
+                    ษออออออออออออออป
+                    บ  Action Bar  บ
+                    ศออออออออออออออผ
+Activates the action bar at the top of the SD386 screen.
+DEB0213H:
+; Keys help
+                    ษอออออออออออออป
+                    บ  Keys Help  บ
+                    ศอออออออออออออผ
+;
+DEB0214H:
+; Unsigned Char
+Data type is UNSIGNED CHAR (8 bits).
+;
+DEB0215H:
+; Unsigned Short
+Data type is UNSIGNED SHORT (16 bits).
+;
+DEB0216H:
+; Unsigned Long
+Data type is UNSIGNED LONG (32 bits).
+;
+DEB0217H:
+; Long Double
+Data type is LONG DOUBLE (80 bits).
+;
+DEB0218H:
+;
+Do you want to exit ESP? Enter Y or N.
+
+;
+DEB0219H:
+;
+Go to a specific source file line number.
+;
+DEB0220H:
+;
+What action do you want to take?
+
+ 1. Stop the debuggee.
+ 2. Exit SD386.
+
+;
+DEB0221H:
+; Process Dialog
+                         ษอออออออออออออป
+                         บ  Processes  บ
+                         ศอออออออออออออผ
+ฺฤฤฤฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤยฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+ณMouse Input ณKey Inputณ Action                                ณ
+รฤฤฤฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤลฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤด
+ณ            ณ or    ณ Highlight a process                   ณ
+ณ<Enter>     ณEnter    ณ Give focus to the highlighted process ณ
+ณ<Cancel>    ณEsc      ณ Exit without any action               ณ
+ณ<Help>      ณF1       ณ See this Help panel                   ณ
+ภฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+;
+DEB0222?:
+DEB0223?:
+DEB0224?:
+DEB0225?:
+DEB0226?:
+DEB0227?:
+DEB0228?:
+DEB0229?:
+DEB0230?:
+DEB0231?:
+DEB0232?:
+DEB0233?:
+DEB0234?:
+DEB0235?:
+DEB0236?:
+DEB0237?:
+DEB0238?:
+DEB0239?:
+DEB0240?:
+DEB0241H:
+                    ษอออออออออออออออป
+                    บ  MSHGET Help  บ
+                    ศอออออออออออออออผ
+DEB0242H:
+                    ษอออออออออออออออป
+                    บ  MSHPUT Help  บ
+                    ศอออออออออออออออผ
+DEB0243?:
+DEB0244H:
+;HELP_PULL_SAVEBKPS
+Saves the current set of breakpoints in a file.  By default,
+breakpoints are stored in the current directory with a name based
+on the EXE that you're debugging.  For example, if you're
+debugging MYPGM.EXE, then the breakpoint file will be named
+MYPGM.BRK.  To save the breakpoints in a specific file and
+directory, you can specify an SD386BRK environment variable as
+follows:
+
+Set SD386BRK=d:\mybrks\mybrks.brk
+
+DEB0245H:
+;HELP_PULL_RESTOREBKPS
+;
+Restores a set of breakpoints from a a file.  By default,
+breakpoints are stored in the current directory with a name based
+on the EXE that you're debugging.  For example, if you're
+debugging MYPGM.EXE, then the breakpoint file will be named
+MYPGM.BRK.  To restore breakpoints from a specific file and
+directory, you can specify an SD386BRK environment variable as
+follows:
+
+Set SD386BRK=d:\mybrks\mybrks.brk
+
+;
+DEB0246H:
+;HELP_PULL_EDITBKPS
+You can edit a breakpoint file using an editor.  You can also
+start an editor session from within a debug session by defining
+an SD386EDITOR environment variable.
+
+ Set SD386EDITOR=e
+
+You do not have to include a .exe extension.  You can if you like, but
+SD386 will add it for you if it isn't there.  You can also include an
+explicit path if you want, but if you don't, SD386 will look along the
+PATH environment variable that it inherited from the session the debugger
+was started in.
+
+SD386 will start your editor as a child session of the debugger and the
+editor session will be terminated when you quit the debugger.  Some
+editors may not terminate when the debugger quits.  In this case, the
+editor refused to die when OS/2 sent a kill process signal to the
+editor process.  Both EPM and the System Editor will terminate when you
+quit the debugger.
+
+After you have edited and saved a breakpoint file, SD386 will
+update the breakpoints the next time you execute any of the go or
+step commands under the Run pulldown.  You do not have to end the
+edit session before the breakpoints will be updated.  But, you do
+have to save the file.
+
+When you're debugging PM apps and not using a remote connection to a
+target machine, then you'll need to use a fullscreen or window
+compatible editor.  Else, you'll probably hang the machine.  SD386 will
+force the editor into a fullscreen session.  If you inadvertently use a
+PM editor, then you will get a message and SD386 will not start the
+editor session.
+DEB0247H:
+/*
+   { dll/exe, -----function name-------------------------------------- }
+               |                            |   |      |  |         |
+               |                            |    --,D--    --,COND--
+                ---filename--,--line number-
+
+   where:
+
+      dll/exe       = The name of the executable where you want to set the
+                      breakpoint.  Path information will be ignored since the
+                      path is defined by the LIBPATH environment in
+                      config.sys.  The .EXE or .DLL extension is optional.
+
+      function name = Function name where you want to set the breakpoint.
+
+      filename      = The file name of the source file where you want to
+                      set the breakpoint.  Path information will be ignored
+                      since it's not used to define the breapoint.  The
+                      filename MUST contain an extension, for example,
+                      myapp.c.
+
+      line number   = Line number within filename where you want to set the
+                      breakpoint.
+
+      D             = Optional parameter to specify whether or not the
+                      breakpoint is deferred(D).  It is not actually used
+                      except for information.  When SD386 restores a
+                      breakpoint file, it checks to see if the dll/exe has
+                      been loaded, and if it hasn't, then the breakpoint is
+                      deferred.
+
+      COND          = Optional breakpoint condition.
+*/
+DEB0248H:Saving breakpoints to
+
+%1
+DEB0249H:Restoring breakpoints from
+
+%1
+DEB0250H:Unknown function name. Enter "Yes" to defer. It
+will be hit in all dlls containing this name.To restrict
+it to a specific dll use Breakpoint->Set Deferred Break.
+
+DEB0251H:
+; Deferred Breakpoint
+Sets a breakpoint on a function in a dynamically loaded dll.  Use
+the syntax [dllname.]funcname.  If the dll name is not specified
+then the breakpoint will be hit for all dlls containing the
+function name.
+;
+DEB0252H:
+; Deferred Breakpoint dialog
+Enter the name of the function optionally dot qualified with
+a dll name.
+;
+DEB0253H:
+; Address Load pulldown help
+Break when an address gets loaded.
+DEB0254H:
+; Dll Load pulldown help
+Break when a dll gets loaded.
+;
+DEB0255H:
+; Address Load dialog
+Enter the load address you want to break on.
+;
+DEB0256H:
+; Dll Load dialog
+Enter the dll name that you want to break on.
+;
+DEB0257H:
+; Processes
+Displays a list of processes being debugged.
+;
+DEB0258H:
+;
+Turn on/off the display of member functions when showing classes.
+;
+DEB0259?:
+DEB0260?:
+DEB0261?:
+DEB0262?:
+DEB0263?:
+DEB0264?:
+DEB0265?:
+DEB0266?:
+DEB0267?:
+DEB0268?:
+DEB0269?:
+DEB0270?:
+DEB0271?:
+DEB0272?:
+DEB0273?:
+DEB0274?:
+DEB0275?:
+DEB0276?:
+DEB0277?:
+DEB0278?:
+DEB0279?:
+DEB0280?:
+DEB0281?:
+DEB0282?:
+DEB0283?:
+DEB0284?:
+DEB0285?:
+DEB0286?:
+DEB0287?:
+DEB0288?:
+DEB0289?:
+DEB0290?:
+DEB0291?:
+DEB0292?:
+DEB0293?:
+DEB0294?:
+DEB0295?:
+DEB0296?:
+DEB0297?:
+DEB0298?:
+DEB0299?:
+DEB0300?:
+DEB0301?:
+DEB0302?:
+DEB0303?:
+DEB0304?:
+DEB0305?:
+DEB0306?:
+DEB0307?:
+DEB0308?:
+DEB0309?:
+DEB0310?:
+DEB0311?:
+DEB0312?:
+DEB0313?:
+DEB0314?:
+DEB0315?:
+DEB0316?:
+DEB0317?:
+DEB0318?:
+DEB0319?:
+DEB0320?:
+DEB0321?:
+DEB0322?:
+DEB0323?:
+DEB0324?:
+DEB0325?:
+DEB0326?:
+DEB0327?:
+DEB0328?:
+DEB0329?:
+DEB0330?:
+DEB0331?:
+DEB0332?:
+DEB0333?:
+DEB0334?:
+DEB0335?:
+DEB0336?:
+DEB0337?:
+DEB0338?:
+DEB0339?:
+DEB0340?:
+DEB0341?:
+DEB0342?:
+DEB0343?:
+DEB0344?:
+DEB0345?:
+DEB0346?:
+DEB0347?:
+DEB0348?:
+DEB0349?:
+DEB0350?:
+DEB0351?:
+DEB0352?:
+DEB0353?:
+DEB0354?:
+DEB0355?:
+DEB0356?:
+DEB0357?:
+DEB0358?:
+DEB0359?:
+DEB0360?:
+DEB0361?:
+DEB0362?:
+DEB0363?:
+DEB0364?:
+DEB0365?:
+DEB0366?:
+DEB0367?:
+DEB0368?:
+DEB0369?:
+DEB0370?:
+DEB0371?:
+DEB0372?:
+DEB0373?:
+DEB0374?:
+DEB0375?:
+DEB0376?:
+DEB0377?:
+DEB0378?:
+DEB0379?:
+DEB0380?:
+DEB0381?:
+DEB0382?:
+DEB0383?:
+DEB0384?:
+DEB0385?:
+DEB0386?:
+DEB0387?:
+DEB0388?:
+DEB0389?:
+DEB0390?:
+DEB0391?:
+DEB0392?:
+DEB0393?:
+DEB0394?:
+DEB0395?:
+DEB0396?:
+DEB0397?:
+DEB0398?:
+DEB0399?:
+DEB0400?:
+DEB0401?:
+DEB0402?:
+DEB0403?:
+DEB0404?:
+DEB0405?:
+DEB0406?:
+DEB0407?:
+DEB0408?:
+DEB0409?:
+DEB0410?:
+DEB0411?:
+DEB0412?:
+DEB0413?:
+DEB0414?:
+DEB0415?:
+DEB0416?:
+DEB0417?:
+DEB0418?:
+DEB0419?:
+DEB0420?:
+DEB0421?:
+DEB0422?:
+DEB0423?:
+DEB0424?:
+DEB0425?:
+DEB0426?:
+DEB0427?:
+DEB0428?:
+DEB0429?:
+DEB0430?:
+DEB0431?:
+DEB0432?:
+DEB0433?:
+DEB0434?:
+DEB0435?:
+DEB0436?:
+DEB0437?:
+DEB0438?:
+DEB0439?:
+DEB0440?:
+DEB0441?:
+DEB0442?:
+DEB0443?:
+DEB0444?:
+DEB0445?:
+DEB0446?:
+DEB0447?:
+DEB0448?:
+DEB0449?:
+DEB0450?:
+DEB0451?:
+DEB0452?:
+DEB0453?:
+DEB0454?:
+DEB0455?:
+DEB0456?:
+DEB0457?:
+DEB0458?:
+DEB0459?:
+DEB0460?:
+DEB0461?:
+DEB0462?:
+DEB0463?:
+DEB0464?:
+DEB0465?:
+DEB0466?:
+DEB0467?:
+DEB0468?:
+DEB0469?:
+DEB0470?:
+DEB0471?:
+DEB0472?:
+DEB0473?:
+DEB0474?:
+DEB0475?:
+DEB0476?:
+DEB0477?:
+DEB0478?:
+DEB0479?:
+DEB0480?:
+DEB0481?:
+DEB0482?:
+DEB0483?:
+DEB0484?:
+DEB0485?:
+DEB0486?:
+DEB0487?:
+DEB0488?:
+DEB0489?:
+DEB0490?:
+DEB0491?:
+DEB0492?:
+DEB0493?:
+DEB0494?:
+DEB0495?:
+DEB0496?:
+DEB0497?:
+DEB0498?:
+DEB0499?:
+;==============================================================================
+; English error messages for SD386
+; Created 08/07/93
+; JCC 10/18/93
+;
+; Organized as follows:
+;   message numbers match message ids defined in ERRORID.H
+;   ordered by location in action bar
+;==============================================================================
+;
+DEB0500H:
+;
+Bad Invocation Option...%1
+;
+DEB0501H:
+;
+No EXE name.
+;
+DEB0502H:
+;
+Com Port Error.
+;
+DEB0503H:
+;
+Unable to open the modem file.
+;
+DEB0504H:
+;
+Execution Services Probe(ESP) not ready.
+;
+DEB0505H:
+;
+Cannot get your modem's attention. Check the following:
+
+ - Modem power on.
+ - Modem to computer cable connection. If you're using a homemade
+   cable, be sure to connect the RTS/CTS signals.
+ - Modem to telephone line connection.
+ - Modem is connected to the correct com port.
+
+If all of these are ok, then try resetting the modem by
+turning the power off and back on.
+
+;
+DEB0506H:
+;
+
+The modem is not responding and a connect timeout has occurred.
+
+Check the following:
+
+ - Modem to telephone line connection.
+
+;
+;--Profile Errors----------------------------------------
+;
+DEB0507H:
+;
+User Profile Error.
+;
+DEB0508H:
+;
+Cannot read SD386.PRO.
+;
+DEB0509H:
+;
+Incorrect version of SD386.PRO.  The version number on the
+first line of the file must match the version number of
+SD386.EXE.
+;
+DEB0510H:
+;
+Keyword Start_Of_Defs not found in SD386.PRO.
+;
+DEB0511H:
+;
+Invalid Function specified in SD386.PRO.
+
+ "%1" at Line No %2.
+;
+DEB0512H:
+;
+Invalid Attribute specified in SD386.PRO.
+
+ "%1" at Line No %2.
+;
+;
+DEB0513H:
+;
+Invalid Background Color in SD386.PRO.
+
+ "%1" at Line No %2.
+;
+DEB0514H:
+;
+Invalid Foreground Color in SD386.PRO.
+
+ "%1" at Line No %2.
+;
+DEB0515H:
+;
+Invalid Exception Type in SD386.PRO.
+
+ "%1" at Line No %2.
+;
+;
+DEB0516H:
+;
+Invalid Exception in SD386.PRO.
+
+ "%1" at Line No %2.
+;
+DEB0517H:
+;
+Invalid Key in SD386.PRO.
+
+ "%1" at Line No %2.
+;
+DEB0518H:
+;
+Nested comments not allowed in SD386.PRO.
+
+ Line No %1 %2.
+;
+DEB0519H:
+;
+SD386.PRO Error.
+;
+DEB0520H:
+;
+Error reading file %1.
+;
+DEB0521H:
+;
+Cannot find %1.
+;
+DEB0522?:
+;
+DEB0523H:
+;
+DosStartSession is failing with rc=%1.
+The following module is contributing to the failure:
+
+  %2
+;
+DEB0524H:
+;
+DosDebug failure trying to initialize
+%1 for debugging.
+;
+DEB0525H:
+;
+Unable to initialize %1.
+;
+DEB0526?:
+;
+DEB0527?:
+;
+DEB0528H:
+;
+Error trying to get the entry point for the following file:
+
+%1
+;
+DEB0529H:
+;
+Too many dlls.
+
+;
+DEB0530H:
+;
+The debug information for the following file is corrupt.
+
+%1
+;
+DEB0531H:
+;
+Can't build a source or assembler view.
+;
+DEB0532H:
+;
+Invalid com port number.
+;
+DEB0533H:
+;
+Unable to open the com port.
+;
+DEB0534H:
+;
+SD386 was able to open the com port but is unable to
+set the com port parameters.
+;
+DEB0535H:
+;
+%1 references an undefined structure.
+;
+DEB0536H:
+;
+Unable  to register an exception handler.
+;
+DEB0537H:
+;
+Unable to start queue. System rc=%1.
+;
+DEB0538H:
+;
+The debugger has detected a "Resource Interlock" condition and
+your application has been terminated. Debugging is stopped.
+;
+DEB0539H:
+;
+The response file associated with the /b invocation option is
+either corrupt or cannot be found.  The response file must be in
+the current directory or specified with an explicit path.
+
+%1
+;
+DEB0540H:
+;
+Unable to connect to esp...%1.
+;
+DEB0541H:
+;
+
+%1
+
+%2
+;
+DEB0542H:
+;
+Netbios has an inadequate number of ...%1...  to start this
+session or probe.  Check the PROTOCOL.INI in your IBMCOM
+subdirectory and look for the allocation of the appropriate
+resource.  You should see some entries that look like so:
+
+   SESSIONS = 50
+   NCBS = 95
+   NAMES = 21
+
+Bump the number of ...%1... and reboot your machine.
+
+;
+DEB0543H:
+;
+Netbios is unable to load ACSNETB.DLL.  Typically, you will
+find this dll in a subdirectory similar to C:\IBMCOM\DLL after
+you've installed LAPS.  Check for the installation of LAPS and
+check your LIBPATH, then try again.
+;
+DEB0544H:
+;
+You have started SD386 in a VIO window.  The process you're
+debugging is a PM app.  This combination will lead to a system
+hang forcing you to reboot.  It is suggested that you end this
+debug session and start the debugger in a full screen session.
+If you prefer to run the debugger in a window, then you might
+want to consider using a netbios or async remote connection.
+
+If you choose to use full screen sessions running on a single
+machine, then you might want to consider using the /x option to
+turn off ctrl-esc and alt-esc access to the desktop.  If you
+use this option and the debugger abnormally terminates leaving
+ctrl-esc and alt-esc disabled, then simply enter SD386 /x to
+turn it back on.
+;
+DEB0545H:
+;
+Error sending AT command to modem.
+
+;
+DEB0546H:
+;
+Error entering phone number.
+
+;
+DEB0547H:
+;
+DosDebug initializion is failing with rc=%1.
+;
+DEB0548H:
+;
+SD386 is unable to open the breakpoint file:
+
+ %1
+
+You need to define an SD386BRK environment variable that defines the
+path and file name of the breakpoint file. For example:
+
+Set SD386BRK=d:\mybrks\myapp.brk
+
+Or, if you don't want to use an environment variable, then you can
+default to SD386.BRK in the current directory.
+;
+DEB0549H:
+;
+Unmatched comment in breakpoint file:
+
+ file name = %1
+;
+DEB0550H:
+Breakpoint syntax error in:
+
+%1
+
+check for a missing "{".
+;
+DEB0551H:Breakpoint error: missing dll or exe name. ( Esc to return.)
+DEB0552H:Breakpoint error: missing function or (filename,line number). ( Esc to return.)
+DEB0553H:Breakpoint error: missing line number.( Esc to return.)
+DEB0554H:The function name does not exist.( Esc to return.)
+DEB0555H:The file name is not linked for source level debug.( Esc to return.)
+DEB0556H:%1 ( Esc to return.)
+DEB0557H:
+You need to define an SD386BRK environment variable
+which includes the path and filename of the breakpoint
+file. For example:
+
+ Set SD386BRK=D:\MYBRKS\MYBRK.BRK
+DEB0558H:Error writing the breakpoint file.
+DEB0559H:
+You need to define an SD386EDITOR environment variable.
+For example:
+
+ Set SD386EDITOR=e
+
+DEB0560H:
+;
+SD386 is unable to access the breakpoint file editor:
+
+ %1
+
+Check the definition of your SD386EDITOR environment variable and if
+you haven't specified a path, then modify the PATH environment variable
+to make the editor accessible. Or, add an explicit path to SD386EDITOR.
+;
+DEB0561H:
+Unable to start the breakpoint file editor.
+
+DosStartSession rc=%1
+
+%2
+DEB0562H:
+You are debugging a PM app and the editor you've chosen is also a
+PM app.  You need to use a fullscreen or window compatible editor
+to avoid hanging the system by going to the desktop.  If you use a
+window compatible editor, then SD386 will start it in a full
+screen session when debugging a PM app.
+
+If you only want to browse the breakpoint file, then use the browser
+provided with SD386 by selecting File->Browse File.
+DEB0563H:
+%1.dll is not currently loaded.
+Try setting a deferred breakpoint.
+DEB0564H:
+%1 was not found in %2.
+DEB0565H:
+%1
+
+Invalid breakpoint definition.
+;
+DEB0566H:
+Address %1 is not loaded.
+;
+DEB0567H:
+;
+DosLoadModule is failing with rc=%1. Check LIBPATH.
+The following module is contributing to the failure:
+
+%2
+;
+DEB0568H:
+;
+DosQueryProcAddr is failing with rc=%1.
+The following procedure is contributing to the failure:
+
+%2
+;
+DEB0569H:
+;
+Unable to access MSHLOOP.CMD. SD386 tries to access this file as
+follows:
+
+ 1. Using the MSHHOME environment variable. For example, if
+    MSHHOME=D:\MSH then SD386 will look in D:\MSH\BIN.
+
+ 2. By inferring it from where MSHCALC was loaded. If MSHCALC was
+    loaded from D:\MSH\DLL then SD386 will look in D:\MSH\BIN.
+;
+DEB0570H:
+Cannot start MSHLOOP.CMD.
+
+DosStartSession is failing with rc=%1.
+;
+DEB0571?:
+;
+DEB0572H:
+;
+DosLoadModule/DosQueryProcAddr is failing with rc=%1.
+
+Unable to load the dlls necessary to run TCP/IP...
+
+ - SO32DLL.DLL
+ - TCP32DLL.DLL
+
+You should be able to find these in the \MPTN\DLL subdirectory
+on the drive where OS/2 is installed. Check your TCP/IP installation
+and your LIBPATH.
+;
+DEB0573H:
+;
+TCP/IP is not running.
+;
+DEB0574H:
+;
+TCP/IP error.
+;
+DEB0575H:
+;
+You need to specify a port number in your SERVICES file.
+You should be able to find this file in the \MPTN\ETC subdirectory
+on the drive where OS/2 is installed. The entry should look like:
+
+ sd386     4321/tcp
+
+where 4321 is the port number and tcp is the protocol.  You can
+use whatever port number you wish as long as there is no conflict
+with other well-known services.  Simply browse SERVICES and find
+an available port number. Use lower case.
+;
+
+DEB0576H:
+;
+You need to specify a host name in your HOSTS file.  You should be
+able to find this file in the \MPTN\ETC subdirectory on the drive
+where OS/2 is installed.  The entry should look like:
+
+9.51.136.80  clements.cv.lexington.ibm.com  elvis
+
+where elvis is the alias for the foreign address specified by the
+dotted decimal/name addresses.  Use whatever alias name you wish.
+;
+DEB0577H:
+;
+You need to start esp with the /t option.
+
+If esp is started, then verify that the port numbers for SD386 in
+the \MPTN\ETC\SERVICES file for both local and remote machines are
+the same.
+
+

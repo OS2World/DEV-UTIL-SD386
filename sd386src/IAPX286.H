@@ -1,0 +1,18 @@
+
+#define RPLof(s) ((s)&3)
+#define RPL_USER 3
+
+#define FARJUMP8086OPCODE 0xEA
+#define FARCALL8086OPCODE 0x9A
+#define BREAKPT8086OPCODE 0xCC
+
+#define CARRY_FLAG  0x0001
+#define PARITY_FLAG 0x0004
+#define ACARRY_FLAG 0x0010
+#define ZERO_FLAG   0x0040
+#define SIGN_FLAG   0x0080
+#define TRAP_FLAG   0x0100
+#define INTERRUPT_FLAG 0x0200
+#define DIRECTION_FLAG 0x0400
+#define OVERFLOW_FLAG  0x0800
+

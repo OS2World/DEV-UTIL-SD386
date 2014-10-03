@@ -1,0 +1,35 @@
+xsrvmain +
+xsrvgo_e +
+xsrvbrk  +
+xsrvmte  +
+xsrvdis  +
+xsrvfile +
+xsrvdbif +
+xsrvfexe +
+espstrte +
+xsrvthds +
+xsrvunwd +
+xsrvacvt +
+xsrvwps  +
+xsrvxcpt +
+bytes    +
+davetoll +
+com      +
+rx       +
+d16      +
+log      +
+getmsg   +
+q        +
+espq     +
+pipe     +
+router   +
+netbios  +
+tcpip    +
+spawn_e  +
+vb_e     +
+pid_e    +
+sema4_e
+esp,
+esp,,
+esp.def
+
